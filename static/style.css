@@ -129,23 +129,7 @@ li {
   font-size: large;
   transition: 0.75s;
 }
-.encrypted {
-  color: #00dfc4;
-  background: #1d2b3a;
-  padding: 20px;
-  border-radius: 5px;
-  border-color: #00dfc4;
-  border-left: #00dfc4;
-  border: 1px solid rgba(255,255,255,0.25);
-  transition: 0.5s;
 
-
-}
-.encrypted:hover{
-  border: 1px solid #00dfc4;
-  padding: 25px;
-  transition: 0.5s;
-}
 h1{
   color: white;
 }
