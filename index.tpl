@@ -51,43 +51,46 @@
         Hier wird an Bottlepy ein ausführbarer Python Code übergeben. Dadurch ist es möglich die hinzugefügten
         Elemente in einer Liste anzuzeigen.
       -->
-      <ul id="list" >
-        <!-- Mit Hilfe der For-Schleife werden im Array passwords die Elemente abgerufen und dargestellt.  -->
-          % for task in passwords:
-          <div class ="elements">
-              <li>{{task['password']}}</li>
-              <div class="button-group">
-                    <!-- Ändern-Formular -->
+      <ul id="list">
+        <!-- Mit Hilfe der For-Schleife werden im Array passwords die Elemente abgerufen und dargestellt. -->
+        % for task in passwords:
+        <div class="elements">
+          <!-- Passwort in einem Block-Element anzeigen -->
+          <div class="password">{{task['password']}}</div>
+          <!-- Horizontale Linie unter dem Passwort -->
+          <!-- Text unter der Linie -->
+          <div class="button-group">
+            <!-- Ändern-Formular -->
             <form action="/edit" method="post" style="display:inline;">
               <input type="hidden" name="password_id" value="{{task['password_id']}}">
               <input type="hidden" name="password" value="{{task['password']}}">
               <input type="hidden" name="encrypted" value="{{task['encrypted']}}">
-
               <button type="submit" class="icon-button">
                 <span class="edit-icon"></span>
-            </button>
-          </form>
+              </button>
 
-         <!-- Löschen-Formular -->
-          <form action="/delete" method="post" style="display:inline;">
+            </form>
+      
+            <!-- Löschen-Formular -->
+            <form action="/delete" method="post" style="display:inline;">
               <input type="hidden" name="password_id" value="{{task['password_id']}}">
               <button type="submit" class="icon-button">
                 <span class="delete-icon"></span>
-            </button>
-          </form>
-
-          <!-- Kopieren-Formular -->
-          <form action="/copy" method="post" style="display:inline;">
-            <input type="hidden" name="password_id" value="{{task['password_id']}}">
-            <button type="submit" class="icon-button">
-              <span class="copy-icon"></span>
-          </button>
-          </form>
-            </div>
+              </button>
+            </form>
+      
+            <!-- Kopieren-Formular -->
+            <form action="/copy" method="post" style="display:inline;">
+              <input type="hidden" name="password_id" value="{{task['password_id']}}">
+              <button type="submit" class="icon-button">
+                <span class="copy-icon"></span>
+              </button>
+            </form>
 
           </div>
-
-          % end
+          
+        </div>
+        % end
       </ul>
   </div>
   <form></form>

@@ -1,27 +1,9 @@
 from bottle import Bottle, run, template, static_file,request, redirect
 import pyperclip as pc
-
+from password_checker import password_stenght
+from rot13 import encrypt_text
 
 #  Aus einem Semesterprojekt importiert
-def encrypt_text(decrypt_input,n):
-
-    ans = ""
-    # iterate over the given text
-    for i in range(len(decrypt_input)):
-        ch = decrypt_input[i]
-        
-        # check if space is there then simply add space
-        if ch==" ":
-            ans+=" "
-        # check if a character is uppercase then encrypt it accordingly 
-        elif (ch.isupper()):
-        # ord() gibt Unicode-Charakter zurück
-            ans += chr((ord(ch) + n-65) % 26 + 65)
-        # check if a character is lowercase then encrypt it accordingly
-        
-        else:
-            ans += chr((ord(ch) + n-97) % 26 + 97)
-    return ans
 
 
 app = Bottle()
@@ -50,13 +32,14 @@ def serve_static(filename):
 def add_task():
     global task_id_counter
     password = request.forms.get('password') 
-
+    password_strength = password_stenght(password)
     
     if password: 
         new_task = {
             'password': password,
             'password_id': task_id_counter,
-            'encrypted': enrypted 
+            'encrypted': enrypted,
+            'security_level': password_strength
         }
         passwords.append(new_task)
         # Vergabe der ID zur Identifikation des Passworts
