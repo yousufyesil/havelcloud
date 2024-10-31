@@ -1,5 +1,5 @@
 # Yousuf's Passwort-Manager
-
+In diesem Repo geht es um einen kleinen Passwort-Manager, welcher Lokal betrieben wird und viele tolle Features beinhaltet. 
 ## Funktionen
 
 Das Ziel des Passwort-Managers war eine CRUD-Applikation (Create, Read, Update, Delete) zu entwickeln, welche die eingegebenen Daten nicht-persistent speichert.
@@ -16,6 +16,8 @@ ROT13-Chiffre entschlüsseln | Update
 Passwort löschen | Delete
 
 
+Die Umsetzung der ROT13-Verschlüsselung basiert auf einem Semesterprojekt im Zeitraum vom 01.05.2024 - 01.07.2024. Das Ziel des Semesterprojektes war es eine Anwendung in Python auf einem Webserver der Technischen Hochschule Brandenburg zu programmieren. Durch die Festlegung der Chiffre auf den Wert 13, konnte daher das ROT13 Verfahren eingebunden werden. 
+
 
 ## Architektur & Aufbau
 
@@ -25,6 +27,8 @@ anstatt die Anwendung in JavaScript zu programmieren.
 Der Kern der Anwendung besteht aus der bottle.py-Datei, welche für das Routing, sowie für die zugrundeliegende Logik, welche für die CRUD-Anweisungen zuständig sind.
 Diese Datei ist zudem für die Verwaltung der Passwörter zuständig.
 Diese erfolgt durch ein Array, welches mehrere Dictonaries entält. Ein Passwort wird mit folgenden Keys initalisiert:
+
+
 
 Key | Funktion 
 --- | --- 
@@ -36,7 +40,11 @@ security_level | Wird durch password_checker.py, unter Verwendung von password i
 Die Kommunikation zwischen dem Template und der bottle.py-Datei erfolgt über die HTTP-Protokolle GET & POST.
 
 
-### Projektdaten
+### Design 
+Das Design erfolgt durch durch die style.css-Datei. Das Design hierfür stammt aus dem genannten Semesterprojekt und setzt sich durch diverse Vorlagen zusammen, welche für den individuellen Zweck weiter entwicklt und angepasst worden sind.
+
+
+## Projektdaten
 Entwickler: M.-Yousuf Yesil <br>
 Entwicklungszeitraum 28.10 - 31.10 <br>
 Programmiersprachen: Python <br>
