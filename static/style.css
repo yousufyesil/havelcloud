@@ -20,13 +20,15 @@ p{
   color: #fff;
 }
 .inputBox{
+  margin-left: -10px;
   position: relative;
-  width: 250px;
+  width: 500px;
 }
 
 .inputBox input{
   width: 100%;
   padding: 10px;
+  padding-left: 30px;
   border: 1px solid rgba(255,255,255,0.25);
   background: #1d2b3a;
   border-radius: 5px;
@@ -87,6 +89,7 @@ input[type=number] {
 .submitBox{
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
   
 }
 .submit {
@@ -232,6 +235,7 @@ input[type="checkbox"]:hover {
   transform: translate(-50%, -50%);
 }
 */
+
 .formfield {
   display: flex;
   gap: 10px; /* Abstand zwischen den beiden Boxen */
@@ -247,17 +251,6 @@ input[type="checkbox"]:hover {
 }
 
 
-.elements {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #fff;
-  background: #1d2b3a;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid rgba(255,255,255,0.25);
-  margin-bottom: 15px;
-}
 .fade-out {
   opacity: 0;
   transform: translateX(-20px); /* Leichter Slide nach links beim Ausblenden */
@@ -325,4 +318,54 @@ input[type="checkbox"]:hover {
 .icon-button:hover {
   padding: 5px;
   transition: 0.5s;
+}
+.elements {
+  display: grid;
+  /* grid-column: 2; */
+  color: #fff;
+  background: #1d2b3a;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 5px;
+}
+.password {
+  display: inline-grid;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.button-group {
+  display: inline-grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-auto-flow: column;
+  grid-row: 1;
+  grid-row-end: 1;
+  justify-content: end;
+  margin-left: 10px;
+  column-gap: 20px; /* Fügt Abstand zwischen den Buttons hinzu */
+}
+
+div#pw-strength {
+  display: inline-grid;
+  font-size: small;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 2;
+}
+hr{
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25); /* oder eine andere Farbe */
+  width: 30%;
+}
+.sec{
+  color: rgba(255, 255, 255, 0.25);
+  font-size: small;
+  font-weight: 500;
+}
+.inputBox,
+.password {
+  width: 300%; /* macht das Eingabefeld genauso breit wie das Container-Element */
+  margin-bottom: 15px;
 }

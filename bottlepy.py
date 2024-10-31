@@ -33,13 +33,16 @@ def add_task():
     global task_id_counter
     password = request.forms.get('password') 
     password_strength = password_stenght(password)
+
     
     if password: 
         new_task = {
             'password': password,
             'password_id': task_id_counter,
             'encrypted': enrypted,
-            'security_level': password_strength
+            'security_level': password_strength,
+ 
+
         }
         passwords.append(new_task)
         # Vergabe der ID zur Identifikation des Passworts
@@ -75,7 +78,7 @@ def copy_task():
     return redirect('/')
 
 
-@app.route('/edit', method='POST')
+@app.route('/encrypt', method='POST')
 def edit_task():
     password_id = request.forms.get('password_id')
     password = request.forms.get('password')
@@ -101,3 +104,9 @@ def edit_task():
 
 if __name__ == '__main__':
     run(app, host='localhost', port=8080, debug=True)
+
+
+
+# def sort_passwords():
+#     passwords.sort(key=lambda x: x['security_level'])
+#     return passwords

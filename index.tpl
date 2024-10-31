@@ -54,41 +54,56 @@
       <ul id="list">
         <!-- Mit Hilfe der For-Schleife werden im Array passwords die Elemente abgerufen und dargestellt. -->
         % for task in passwords:
-        <div class="elements">
-          <!-- Passwort in einem Block-Element anzeigen -->
-          <div class="password">{{task['password']}}</div>
-          <!-- Horizontale Linie unter dem Passwort -->
-          <!-- Text unter der Linie -->
-          <div class="button-group">
-            <!-- Ändern-Formular -->
-            <form action="/edit" method="post" style="display:inline;">
-              <input type="hidden" name="password_id" value="{{task['password_id']}}">
-              <input type="hidden" name="password" value="{{task['password']}}">
-              <input type="hidden" name="encrypted" value="{{task['encrypted']}}">
-              <button type="submit" class="icon-button">
-                <span class="edit-icon"></span>
-              </button>
-
-            </form>
-      
-            <!-- Löschen-Formular -->
-            <form action="/delete" method="post" style="display:inline;">
-              <input type="hidden" name="password_id" value="{{task['password_id']}}">
-              <button type="submit" class="icon-button">
-                <span class="delete-icon"></span>
-              </button>
-            </form>
-      
-            <!-- Kopieren-Formular -->
-            <form action="/copy" method="post" style="display:inline;">
-              <input type="hidden" name="password_id" value="{{task['password_id']}}">
-              <button type="submit" class="icon-button">
-                <span class="copy-icon"></span>
-              </button>
-            </form>
-
-          </div>
-          
+        <div class="pfield">
+          <div class="elements">
+            <!-- Passwort in einem Block-Element anzeigen -->
+            <div class="password">{{task['password']}}</div>
+            <!-- Horizontale Linie unter dem Passwort -->
+            <!-- Text unter der Linie -->
+            <div class="button-group">
+              <div class="button">
+                  <!-- Ändern-Formular -->
+              <form action="/encrypt" method="post" style="display:inline;">
+                <input type="hidden" name="password_id" value="{{task['password_id']}}">
+                <input type="hidden" name="password" value="{{task['password']}}">
+                <input type="hidden" name="encrypted" value="{{task['encrypted']}}">
+                <button type="submit" class="icon-button">
+                  <span class="edit-icon"></span>
+                </button>
+  
+              </form>
+              </div>
+              <div class="button">
+                 <!-- Löschen-Formular -->
+              <form action="/delete" method="post" style="display:inline;">
+                <input type="hidden" name="password_id" value="{{task['password_id']}}">
+                <button type="submit" class="icon-button">
+                  <span class="delete-icon"></span>
+                </button>
+  
+              </form>
+        
+              </div>
+              <div class="button">
+                
+              <!-- Kopieren-Formular -->
+              <form action="/copy" method="post" style="display:inline;">
+                <input type="hidden" name="password_id" value="{{task['password_id']}}">
+                <button type="submit" class="icon-button">
+                  <span class="copy-icon"></span>
+                </button>
+              </form>
+              </div>
+            
+        
+             
+              
+            </div>
+            
+          <div name="pw-strength" id="pw-strength">
+            <hr> <span class="sec"> {{task['security_level']}}</span>
+              </div></div>
+          <br>
         </div>
         % end
       </ul>
