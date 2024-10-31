@@ -23,7 +23,7 @@ Für meinen Passwortmanager greife ich auf das Micro-Framework [Bottle](https://
 anstatt die Anwendung in JavaScript zu programmieren. 
 
 Der Kern der Anwendung besteht aus der bottle.py-Datei, welche für das Routing, sowie für die zugrundeliegende Logik, welche für die CRUD-Anweisungen zuständig sind.
-Diese Datei ist zudem für die Verwaltung der Passwörter zuständig
+Diese Datei ist zudem für die Verwaltung der Passwörter zuständig.
 Diese erfolgt durch ein Array, welches mehrere Dictonaries entält. Ein Passwort wird mit folgenden Keys initalisiert:
 Key | Funktion 
 --- | --- #

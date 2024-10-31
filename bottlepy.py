@@ -36,15 +36,13 @@ def add_task():
 
     
     if password: 
-        new_task = {
+        new_password = {
             'password': password,
             'password_id': task_id_counter,
             'encrypted': enrypted,
             'security_level': password_strength,
- 
-
         }
-        passwords.append(new_task)
+        passwords.append(new_password)
         # Vergabe der ID zur Identifikation des Passworts
         task_id_counter += 1
 
