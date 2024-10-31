@@ -251,7 +251,7 @@ input[type="checkbox"]:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #00dfc4;
+  color: #fff;
   background: #1d2b3a;
   padding: 10px;
   border-radius: 5px;
@@ -281,9 +281,48 @@ input[type="checkbox"]:hover {
   border: 1px solid #00dfc4;
   z-index: 10; /* Überlappt das Listenelement */
 }
-.btn span.icon {
-  background: url(./paste.png) no-repeat;
-  float: left;
-  width: 10px;
-  height: 40px;
+
+.icon-button {
+  width: 36px;  /* Breite und Höhe des Icons */
+  height: 36px;
+  background-color: #00dfc4; 
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%; 
+  padding: 0;
+}
+
+.copy-icon {
+  display: inline-block;
+  width: 25px; 
+  height: 25px;
+  background-image: url('./paste.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(100%) brightness(100%); 
+}
+.delete-icon {
+  display: inline-block;
+  width: 25px; 
+  height: 25px;
+  background-image: url('./delete.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(100%) brightness(100%); 
+}
+.edit-icon {
+  display: inline-block;
+  width: 25px; 
+  height: 25px;
+  background-image: url('./edit.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(100%) brightness(100%); 
+}
+.icon-button:hover {
+  padding: 5px;
+  transition: 0.5s;
 }

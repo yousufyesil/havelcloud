@@ -60,19 +60,25 @@
                     <!-- Ändern-Formular -->
             <form action="/edit" method="post" style="display:inline;">
               <input type="hidden" name="password_id" value="{{task['password_id']}}">
-              <button type="submit">Ändern</button>
+              <button type="submit" class="icon-button">
+                <span class="edit-icon"></span>
+            </button>
           </form>
 
          <!-- Löschen-Formular -->
           <form action="/delete" method="post" style="display:inline;">
               <input type="hidden" name="password_id" value="{{task['password_id']}}">
-              <button type="submit">Löschen</button>
+              <button type="submit" class="icon-button">
+                <span class="delete-icon"></span>
+            </button>
           </form>
 
           <!-- Kopieren-Formular -->
           <form action="/copy" method="post" style="display:inline;">
-              <input type="hidden" name="password_id" value="{{task['password_id']}}">
-              <button type="submit">Kopieren</button>
+            <input type="hidden" name="password_id" value="{{task['password_id']}}">
+            <button type="submit" class="icon-button">
+              <span class="copy-icon"></span>
+          </button>
           </form>
             </div>
 

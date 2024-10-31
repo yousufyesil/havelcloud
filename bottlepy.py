@@ -5,6 +5,9 @@ import pyperclip as pc
 app = Bottle()
 
 passwords = []
+# Counter entspricht der jeweiligen ID des Passworts zu nachträglichen Identifizierung
+# Würde die Identifizerung über den Index erfolgen, so würde bei jedem Löschen eines Passworts der Index neu vergeben werden und die ID nicht mehr stimmen
+# Die Komplexität des Löschens anhand der ID wäre zwar O(1), das anpassen der ID's an den Index wäre jedoch O(n) + Schreibzugriff
 task_id_counter = 0
 
 # Route für die Startseite
@@ -43,6 +46,7 @@ def add_task():
 def delete_task():
     password_id = request.forms.get('password_id')
     # Mit einer For-Schleife iterieren und bei einem Match der ID das zugehörige Passwort entfernen
+    # Die For-Schleife wird verwendet um den Inhalt der einzelnen Dictoinaries nicht zu beeinflussen, damit der Index nicht ungleich der ID ist.
     for task in passwords:
         if task['password_id'] == int(password_id):
             passwords.remove(task)
