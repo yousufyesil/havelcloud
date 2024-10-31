@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caeser Encryption</title>
+    <title>Password Manager</title>
     <link rel="stylesheet" href="./static/style.css">
     <link rel="icon" type="image/png" href="thb.png">
     <!-- <script src="script.js"></script> -->
@@ -60,6 +60,9 @@
                     <!-- Ändern-Formular -->
             <form action="/edit" method="post" style="display:inline;">
               <input type="hidden" name="password_id" value="{{task['password_id']}}">
+              <input type="hidden" name="password" value="{{task['password']}}">
+              <input type="hidden" name="encrypted" value="{{task['encrypted']}}">
+
               <button type="submit" class="icon-button">
                 <span class="edit-icon"></span>
             </button>

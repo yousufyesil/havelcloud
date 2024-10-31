@@ -2,6 +2,28 @@ from bottle import Bottle, run, template, static_file,request, redirect
 import pyperclip as pc
 
 
+#  Aus einem Semesterprojekt importiert
+def encrypt_text(decrypt_input,n):
+
+    ans = ""
+    # iterate over the given text
+    for i in range(len(decrypt_input)):
+        ch = decrypt_input[i]
+        
+        # check if space is there then simply add space
+        if ch==" ":
+            ans+=" "
+        # check if a character is uppercase then encrypt it accordingly 
+        elif (ch.isupper()):
+        # ord() gibt Unicode-Charakter zurück
+            ans += chr((ord(ch) + n-65) % 26 + 65)
+        # check if a character is lowercase then encrypt it accordingly
+        
+        else:
+            ans += chr((ord(ch) + n-97) % 26 + 97)
+    return ans
+
+
 app = Bottle()
 
 passwords = []
@@ -9,6 +31,8 @@ passwords = []
 # Würde die Identifizerung über den Index erfolgen, so würde bei jedem Löschen eines Passworts der Index neu vergeben werden und die ID nicht mehr stimmen
 # Die Komplexität des Löschens anhand der ID wäre zwar O(1), das anpassen der ID's an den Index wäre jedoch O(n) + Schreibzugriff
 task_id_counter = 0
+enrypted = 0
+edit_mode = False
 
 # Route für die Startseite
 @app.route('/')
@@ -31,7 +55,8 @@ def add_task():
     if password: 
         new_task = {
             'password': password,
-            'password_id': task_id_counter
+            'password_id': task_id_counter,
+            'encrypted': enrypted 
         }
         passwords.append(new_task)
         # Vergabe der ID zur Identifikation des Passworts
@@ -70,10 +95,24 @@ def copy_task():
 @app.route('/edit', method='POST')
 def edit_task():
     password_id = request.forms.get('password_id')
-    new_password = request.forms.get('new_password')
+    password = request.forms.get('password')
+    enrypted = request.forms.get('encrypted')
+    new_password = encrypt_text(password,13)
+    print(new_password)
+
     for task in passwords:
+        
+        
+
         if task['password_id'] == int(password_id):
+            if enrypted == 1:
+             new_password = encrypt_text(password,-13)
+             task['encrypted'] = 0  
+             return redirect('/')
             task['password'] = new_password
+            task['encrypted'] = 1
+
+        
     return redirect('/')
 
 
