@@ -25,13 +25,15 @@ anstatt die Anwendung in JavaScript zu programmieren.
 Der Kern der Anwendung besteht aus der bottle.py-Datei, welche für das Routing, sowie für die zugrundeliegende Logik, welche für die CRUD-Anweisungen zuständig sind.
 Diese Datei ist zudem für die Verwaltung der Passwörter zuständig.
 Diese erfolgt durch ein Array, welches mehrere Dictonaries entält. Ein Passwort wird mit folgenden Keys initalisiert:
+
 Key | Funktion 
---- | --- #
+--- | --- 
 password | Inhalt des Passwortes.
 password_id | Zuordnung zur nachträglichen Identifizierung.<br> Die Initaliserung erfolgt durch eine globale Variable, welche inkrementiert wird.
 enrypted| Gibt an, ob ein Passwort bereits verschlüsselt ist. <br> Encrypted wird standardmäßig mit 0 initalisiert.
 security_level | Wird durch password_checker.py, unter Verwendung von password initalisiert.
 
+Die Kommunikation zwischen dem Template und der bottle.py-Datei erfolgt über die HTTP-Protokolle GET & POST.
 
 
 ### Projektdaten
