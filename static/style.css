@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing:  border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  background: #1d2b3a;
+}
+p{
+  color: #fff;
+}
+.inputBox{
+  position: relative;
+  width: 250px;
+}
+
+.inputBox input{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: #1d2b3a;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  transition: 0.5s;
+
+}
+
+.inputBox span{
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+  color: #00dfc4;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #1d2b3a;
+  border-left: 1px solid #00dfc4;
+  border-right: 1px solid #00dfc4;
+  letter-spacing: 0.2em;
+  background: #00dfc4;
+  color: #1d2b3a;
+  border-radius: 2px;
+}
+.inputBox input:focus,
+.inputBox input:valid
+{
+  border: 1px solid #00dfc4;
+} 
+
+
+/*
+https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box
+
+Zum Ausblenden der Zeiger im NumField 
+*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+.submitBox{
+  display: flex;
+  justify-content: center;
+  
+}
+.submit {
+  background-color: #00dfc4;
+  border: #00dfc4;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.submit:hover {
+  transform: scale(1.1); /* Vergrößert den Button auf 110% seiner ursprünglichen Größe */
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+.navbar{
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5em;
+  background-color: #1d2b3a;
+  transition: 0.75s;
+}
+.navigation{
+  padding-top: 30px;
+}
+.navbar:hover{
+  color:#00dfc4;
+  font-size: large;
+  transition: 0.75s;
+}
+.encrypted {
+  color: #00dfc4;
+  background: #1d2b3a;
+  padding: 20px;
+  border-radius: 5px;
+  border-color: #00dfc4;
+  border-left: #00dfc4;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: 0.5s;
+
+
+}
+.encrypted:hover{
+  border: 1px solid #00dfc4;
+  padding: 25px;
+  transition: 0.5s;
+}
+h1{
+  color: white;
+}
+h2{
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1{
+  margin-bottom: 50px;
+}
+.cardelement{
+  margin: 30px;
+  padding: 50px 70px 50px 70px;
+  background: #00dfc4;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 30px;
+  transition: 0.5s;
+  
+}
+
+.cardelement:hover{
+  padding: 60px 80px 60px 80px;
+
+  transition: 0.5s;
+}
+.blank {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  position: relative;
+  color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.checkBox{
+  background-color: #1d2b3a;
+  position: relative;
+  margin-left: 7.5px;
+  
+}
+/* 
+Zum stylen der Checkbox. Kleine Veränderungen wurden am Original vorgenommen.
+https://sentry.io/answers/how-to-style-a-checkbox-using-css/
+*/
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 0.1rem;
+  border: 0.15rem solid rgba(255,255,255,0.25);
+  border-radius: 0.25rem;
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(0.70);
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  transform: scale(0);
+  background-color: #00dfc4;
+  transition: 1s;
+}
+
+input[type="checkbox"]:hover {
+  color: black;
+}
+/*
+.main_body{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+*/
+.formfield {
+  display: flex;
+  gap: 10px; /* Abstand zwischen den beiden Boxen */
+  align-items: center; /* Vertikal zentrieren */
+  justify-content: center; /* Optional: horizontal zentrieren */
+}
+.inputBox {
+  flex: 1; /* Lässt die Eingabebox den verfügbaren Raum einnehmen */
+}
+
+.submitBox {
+  flex-shrink: 0;
+}
+
+
+.elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #00dfc4;
+  background: #1d2b3a;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.25);
+  margin-bottom: 15px;
+}
+.fade-out {
+  opacity: 0;
+  transform: translateX(-20px); /* Leichter Slide nach links beim Ausblenden */
+}
+.button-group button {
+  transition: transform 0.2s ease;
+}
+
+.button-group button:active {
+  transform: scale(0.95); 
+}
+
+.editBox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Hintergrund mit leichter Transparenz */
+  padding: 10px;
+  border: 1px solid #00dfc4;
+  z-index: 10; /* Überlappt das Listenelement */
+}
+.btn span.icon {
+  background: url(./paste.png) no-repeat;
+  float: left;
+  width: 10px;
+  height: 40px;
+}
