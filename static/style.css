@@ -317,7 +317,7 @@ input[type="checkbox"]:hover {
   display: inline-block;
   width: 25px; 
   height: 25px;
-  background-image: url('./edit.png'); 
+  background-image: url('./padlock.png'); 
   background-size: contain;
   background-repeat: no-repeat;
   filter: invert(100%) brightness(100%); 
