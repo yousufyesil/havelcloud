@@ -15,13 +15,7 @@
   Wer dennoch versuchen möchte einen Fehler zu provozieren ist gerne eingeladen es auf eigener Verantwortung auszuprobieren. 
 -->
 <body>
-<div class="navigation">
-   <ul>
-    <li><a class="navbar" href="pwGenerator.html">Generator</a></li>
-    <li><a class="navbar" href="info.html">About</a></li>
 
-  </ul>
-</div>
 
  <div class="main_body">
   <form class="formfield" action="/add" method="post" id="inputBox">
