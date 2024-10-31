@@ -1,14 +1,16 @@
 from bottle import Bottle, run, template, static_file,request, redirect
 import pyperclip as pc
+
+
 app = Bottle()
 
-tasks = []
+passwords = []
 task_id_counter = 0
 
 # Route für die Startseite
 @app.route('/')
 def index():
-    return template('index', tasks=tasks, task_id_counter=task_id_counter,)
+    return template('index', passwords=passwords, task_id_counter=task_id_counter,)
 
 # Statische Dateien wie z.B .css Dateien oder Icons werden über @route aus dem Verzeichnis "static" geladen
 @app.route('/static/<filename>')
@@ -28,7 +30,7 @@ def add_task():
             'password': password,
             'password_id': task_id_counter
         }
-        tasks.append(new_task)
+        passwords.append(new_task)
         # Vergabe der ID zur Identifikation des Passworts
         task_id_counter += 1
 
@@ -41,9 +43,9 @@ def add_task():
 def delete_task():
     password_id = request.forms.get('password_id')
     # Mit einer For-Schleife iterieren und bei einem Match der ID das zugehörige Passwort entfernen
-    for task in tasks:
+    for task in passwords:
         if task['password_id'] == int(password_id):
-            tasks.remove(task)
+            passwords.remove(task)
     return redirect('/')    
 
 
@@ -53,7 +55,7 @@ def delete_task():
 def copy_task():
     password_id = request.forms.get('password_id')
     # Passwort anhand der ID finden
-    for task in tasks:
+    for task in passwords:
         if task['password_id'] == int(password_id):
             # Mit pyperclip kann ein Password kopiert werden
             pc.copy(task['password'])
@@ -65,7 +67,7 @@ def copy_task():
 def edit_task():
     password_id = request.forms.get('password_id')
     new_password = request.forms.get('new_password')
-    for task in tasks:
+    for task in passwords:
         if task['password_id'] == int(password_id):
             task['password'] = new_password
     return redirect('/')

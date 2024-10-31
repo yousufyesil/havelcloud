@@ -52,7 +52,8 @@
         Elemente in einer Liste anzuzeigen.
       -->
       <ul id="list" >
-          % for task in tasks:
+        <!-- Mit Hilfe der For-Schleife werden im Array passwords die Elemente abgerufen und dargestellt.  -->
+          % for task in passwords:
           <div class ="elements">
               <li>{{task['password']}}</li>
               <div class="button-group">
@@ -62,7 +63,7 @@
               <button type="submit">Ändern</button>
           </form>
 
-          <!-- Löschen-Formular -->
+         <!-- Löschen-Formular -->
           <form action="/delete" method="post" style="display:inline;">
               <input type="hidden" name="password_id" value="{{task['password_id']}}">
               <button type="submit">Löschen</button>
