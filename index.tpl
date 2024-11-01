@@ -80,7 +80,10 @@
               </div>
               <div class="button">
                 
-              <!-- Kopieren-Formular -->
+              <!-- Copy-Button
+              password_id wird an die Funktion copy übergeben
+              
+              -->
               <form action="/copy" method="post" style="display:inline;">
                 <input type="hidden" name="password_id" value="{{task['password_id']}}">
                 <button type="submit" class="icon-button">

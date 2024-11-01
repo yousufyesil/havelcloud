@@ -1,10 +1,8 @@
 from bottle import Bottle, run, template, static_file,request, redirect
 import pyperclip as pc
+#  Aus einem Semesterprojekt importiert
 from password_checker import password_stenght
 from rot13 import encrypt_text
-
-#  Aus einem Semesterprojekt importiert
-
 
 app = Bottle()
 
@@ -78,21 +76,25 @@ def copy_task():
 
 @app.route('/encrypt', method='POST')
 def edit_task():
+    # Passwörter werden mit GET übergeben
     password_id = request.forms.get('password_id')
     password = request.forms.get('password')
     enrypted = request.forms.get('encrypted')
+    # New_Password wird mit der Funktion encrypt_text verschlüsselt
     new_password = encrypt_text(password,13)
     print(new_password)
 
     for task in passwords:
         
         
-
+        # Falls das enrypted Flag gesetzt ist, wird das Passwort entschlüsselt
         if task['password_id'] == int(password_id):
             if enrypted == 1:
              new_password = encrypt_text(password,-13)
+             # Das Flag wird auf 0 gesetzt, da das Passwort entschlüsselt wurde
              task['encrypted'] = 0  
              return redirect('/')
+            # Das Passwort wird mit dem neuen Passwort überschrieben
             task['password'] = new_password
             task['encrypted'] = 1
 
