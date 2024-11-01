@@ -1,5 +1,6 @@
 # Yousuf's Passwort-Manager
 In diesem Repo geht es um einen kleinen Passwort-Manager, welcher Lokal betrieben wird und viele tolle Features beinhaltet. 
+Auf meiner [EC2 Instanz](http://havelit.tech:8080) ist die Anwendung ebenfalls eigenständig ausführbar ohne Sie lokal ausführen zu müssen.<br> Anmerkung: Der Zugang zur EC2 Instanz kann nur gewährleistet werden, wenn diese hochgefahren sind. An einer dauerhaften Verfügbarkeit wird derzeit gearbeitet
 ## Funktionen
 
 Das Ziel des Passwort-Managers war eine CRUD-Applikation (Create, Read, Update, Delete) zu entwickeln, welche die eingegebenen Daten nicht-persistent speichert.
